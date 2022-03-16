@@ -85,6 +85,23 @@ cc_binary_host {
     cflags: ["-Werror"],
 }
 
+cc_binary_host {
+    name: "simg2img_static",
+    srcs: [
+        "simg2img.cpp",
+        "sparse_crc32.cpp",
+    ],
+    static_libs: [
+        "libsparse",
+        "libz",
+        "libbase",
+    ],
+
+    cflags: ["-Werror"],
+    stl: "libc++_static",
+    static_executable: true,
+}
+
 python_binary_host {
     name: "simg_dump",
     main: "simg_dump.py",
